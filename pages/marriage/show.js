@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Image, Container, Card, Grid, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import Marriage from '../../components/Marriage';
 import Layout from '../../components/Layout';
 import PicaCard from '../../components/PicaCard';
-import web3 from '../../ethereum/web3';
 import { Link } from '../../routes';
 
-class CampaignShow extends Component {
+class MarriageShow extends Component {
   static async getInitialProps(props) {
     const marriageAddress = props.query.marriage;
     const marriage = Marriage(marriageAddress);
@@ -28,6 +27,14 @@ class CampaignShow extends Component {
     };
   }
 
+  makeDonation = () => {
+    console.log("Make a Donation.");
+  }
+
+  cancle = () => {
+    console.log("Maybe next time.");
+  }
+
   render() {
     const {
       level, 
@@ -47,16 +54,27 @@ class CampaignShow extends Component {
 
     return (
       <Layout>
-          <PicaCard 
+        <div className="showPage-left">
+          <PicaCard
             picaName = { picaName }
             picaAge = { picaAge }
             picaHabbit = { picaHabbit }
             partner1 = { partner1 }
             partner2 = { partner2 }
           />
+        </div>
+        <div className="showPage-right">
+          <div className="showPage-all-signed-up"> You are all signed up </div>
+          <div className="showPage-you-got-pica"> You got your pica. Her name is Pica.</div>
+          <div className="showPage-donation"> Feeling generous? Make a donation now to upgrade Pica. When Pica reaches higher level, she will bring you rare gemstone. </div>
+          <div className="showPage-button-group"> 
+            <button className="showPage-make-donation-button" onClick={ this.makeDonation }> Make a donation </button>
+            <button className="showPage-maybe-next-time-button" onClick={ this.cancel }> Maybe next time </button>
+          </div>
+        </div>
       </Layout>
     );
   }
 }
 
-export default CampaignShow;
+export default MarriageShow;

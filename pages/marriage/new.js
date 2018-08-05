@@ -5,7 +5,7 @@ import factory from '../../ethereum/factory';
 import web3 from '../../ethereum/web3';
 import { Router } from '../../routes';
 
-class CampaignNew extends Component {
+class MarriageNew extends Component {
   state = {
     address1: '',
     address2: '',
@@ -37,12 +37,12 @@ class CampaignNew extends Component {
   render() {
     return (
       <Layout>
-        <link rel="stylesheet" href="../static/picaCard.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"></link>
         <h1>Create a Marriage</h1>
 
         <Form onSubmit={this.onSubmit} error={this.state.errorMessage}>
           <Form.Field>
-            <label>Male</label>
+            <label>Partner A</label>
             <Input
               label="0x"
               labelPosition="left"
@@ -52,7 +52,7 @@ class CampaignNew extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Female</label>
+            <label>Partner B</label>
             <Input
               label="0x"
               labelPosition="left"
@@ -69,4 +69,4 @@ class CampaignNew extends Component {
   }
 }
 
-export default CampaignNew;
+export default MarriageNew;
